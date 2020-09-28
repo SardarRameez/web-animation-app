@@ -1,0 +1,28 @@
+.clouda {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 400px;
+}
+.cloudb {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    width: 400px;
+}
+.bird {
+    position: absolute;
+    left: 0px;
+    top: 100px;
+    width: 150px;
+
+}
+.plan {
+    position: absolute;
+    left: 0px;
+    width:250px;
+}
+/* .border {
+    position: relative;
+    border-bottom: 20px solid black;
+} */
