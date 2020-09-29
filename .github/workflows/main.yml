@@ -15,4 +15,4 @@ jobs:
 
             - run: npm install -g surge
             - run: echo "Deploying website"
-            - run: surge ./ tiny-short-animation.surge.sh --token ${{ secrets.SURGE_TOKEN }} 
+            - run: surge ./ tiny-short-animation-rk.surge.sh --token ${{ secrets.SURGE_TOKEN }} 
