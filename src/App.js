@@ -1,9 +1,9 @@
-import React , {useEffect} from 'react';
+import React , {useEffect, useRef} from 'react';
 import useWebAnimations from "@wellyshen/use-web-animations";
 import './App.css';
 
 function App() {
-  var playBackRateRQ = 1;
+  const playBackRateRQ = useRef(1);
   var playBackRateBG = 0;
 
       /* Background animations */
@@ -63,14 +63,13 @@ function App() {
 
 
     const adjustBackgroundPlayback = () => {
-      if (playBackRateRQ < 0.8) {
-          playBackRateBG = (playBackRateRQ / 2) * -1;
-      } else if (playBackRateRQ > 1.2) {
-          playBackRateBG = playBackRateRQ / 2;
+      if (playBackRateRQ.current < 0.8) {
+          playBackRateBG = (playBackRateRQ.current / 2) * -1;
+      } else if (playBackRateRQ.current > 1.2) {
+          playBackRateBG = playBackRateRQ.current / 2;
       } else {
           playBackRateBG = 0;
       }
-      console.log(playBackRateBG)
       foreground1.getAnimation().playbackRate = playBackRateBG;
       foreground1.getAnimation().playbackRate = playBackRateBG;
       background1.getAnimation().playbackRate = playBackRateBG;
@@ -86,16 +85,16 @@ function App() {
 
     setInterval(()=> {
         /* Set decay */
-        if (playBackRateRQ > 0.4) {
-            playBackRateRQ *= 0.9;
-            redQueen_alice.getAnimation().playbackRate = playBackRateRQ;
+        if (playBackRateRQ.current > 0.4) {
+            playBackRateRQ.current *= 0.9;
+            redQueen_alice.getAnimation().playbackRate = playBackRateRQ.current;
         }
         adjustBackgroundPlayback();
     }, 3000);
 
     document.addEventListener("click", ()=>{
-        playBackRateRQ *= 1.1;
-        redQueen_alice.getAnimation().playbackRate = playBackRateRQ;
+        playBackRateRQ.current *= 1.1;
+        redQueen_alice.getAnimation().playbackRate = playBackRateRQ.current;
         adjustBackgroundPlayback();
     });
 })
